@@ -94,3 +94,7 @@ and add disable_multiplane=1 in the ffmpeg command. The example command is
 ./ffmpeg -y -init_hw_device vulkan=vk,disable_multiplane=1 -filter_hw_device vk -hwaccel nvdec -hwaccel_output_format cuda -i input.mp4 -vf "hwupload=derive_device=vulkan,libplacebo=format=yuv420p:colorspace=bt709:color_primaries=bt709:color_trc=bt709,hwupload=derive_device=cuda" -preset:v fast -tune:v hq -rc:v vbr -cq:v 22 -b:v 0  -c:v h264_nvenc -c:a copy libplacebo.cuda.mp4
 ```
 you can find more context in this [issue](https://github.com/haasn/libplacebo/issues/187)
+
+# 问题
+错误：Makefile:200: /tests/Makefile: No such file or directory
+先执行./configure --disable-x86asm 
